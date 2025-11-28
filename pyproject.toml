@@ -1,16 +1,38 @@
-[project]
+[tool.poetry]
 name = "courswork-3"
 version = "0.1.0"
-description = ""
-authors = [
-    {name = "Akmal Khamdullaev",email = "akm992@mail.ru"}
-]
+description = "HH.ru vacancies with PostgreSQL"
+authors = ["Akmal Khamdullaev <akm992@mail.ru>"]
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-]
+packages = [{include = "src"}]
 
+[tool.poetry.dependencies]
+python = ">=3.13"
+psycopg2 = "^2.9.11"
+requests = "^2.32.5"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.0.1"
+pytest-cov = "^7.0.0"
+flake8 = "^7.3.0"
+isort = "^7.0.0"
+mypy = "^1.18.2"
+black = "^25.11.0"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 119
+exclude = '''
+/(
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | dist
+)/
+'''
